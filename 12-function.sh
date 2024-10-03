@@ -3,6 +3,4 @@
 USER=$( id -u )
 TIMESTAMP=$( $date +%F-%H-%M-%S )
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-
-echo "time "  $TIMESTAMP
-echo " current script name is " $SCRIPT_NAME
+LOG_FILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log 
