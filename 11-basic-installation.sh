@@ -10,3 +10,24 @@ else
 fi 
 
 echo " value of USER is " $USER
+
+
+dnf install maven -y 
+
+if [ $? -eq 0 ]
+then 
+    echo " maven installed successfully"
+else
+    echo " maven not installed"
+fi 
+
+
+dnf install git -y 
+
+if [ $? -eq 0 ]
+then
+    echo "git installed successfully"
+else
+    echo "git not installed"
+fi 
+
