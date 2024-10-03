@@ -25,20 +25,12 @@ echo "all packees :" $@
 for i in $@
 do 
 echo "pakages to install ::"$i 
-dnf list installed $i
+dnf list installed $i &>> LOG_FILE
 if [ $? -eq 0 ]
 then 
-    echo -e " $Y $i is already installed $N "
+    echo -e " $Y $i is already installed skipping  $N "
 else 
-    echo  -e" $R $i need to be instal  $N "
-    dnf install $i -y 
-    if [ $? -eq 0 ]
-    then
-        echo -e " $G $i installed successfully $N  "
-    else
-        echo -e " $R  $i not installed $N "
-        exit 1 
-    fi 
+    echo  -e" $R $i need to be install  $N " 
 fi    
 done
 
