@@ -30,10 +30,11 @@ validate()
         echo -e "$G $2 done successfully ..$N"
     else 
         echo  -e "$R $2  failure $N "
+        exit 1 
     fi 
 
 dnf install mysql-server -y &>> $LOG_FILE
-validate S? "installing mysql-server"
+validate $? "installing mysql-server"
 
 systemctl enable mysqld  &>> $LOG_FILE
 validate $? "enabling mysql"
