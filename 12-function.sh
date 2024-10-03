@@ -31,11 +31,11 @@ else
     exit 1 
 fi 
 
-dnf install git -y   
-validate $? "intalling git"  &>> $LOG_FILE
+dnf install git -y   &>> $LOG_FILE
+validate $? "intalling git"  
 
-dnf install nginx -y 
-validate $? "intalling nginx" &>> $LOG_FILE
+dnf install nginx -y &>> $LOG_FILE
+validate $? "intalling nginx" 
 
-dnf install mavennn -y 
-validate $? "intalling maven" &>> $LOG_FILE
+dnf install maven -y &>> $LOG_FILE
+validate $? "intalling maven" 
