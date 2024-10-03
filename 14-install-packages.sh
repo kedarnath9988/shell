@@ -2,7 +2,7 @@
 
 USER=$( id -u )
 TIME_STAMP=$( date +%f-%H-%M-%S )
-SCRIPT_NAME=$ (echo $0 | cut -d "." / -f1 )
+SCRIPT_NAME=$(echo $0 | cut -d "." / -f1 )
 LOG_FILE=/tmp/$SCRIPT_NAME-$TIME_STAMP.log
 #colours enbling 
 R="\e[31m"
