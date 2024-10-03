@@ -12,7 +12,7 @@ echo "to konw the current working directory " $PWD
 
 echo " to know the home directory of the current user is " $HOME 
 
-echo "to know the hostname of the OS is " $HOST
+echo "to know the hostname of the OS is " $HOSTNAME
 
 echo " to know the pid of the current shell script is "$$ 
 
