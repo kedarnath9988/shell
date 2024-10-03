@@ -18,11 +18,13 @@ echo " to know the pid of the current shell script is "$$
 
 sleep 10 
 
+echo "pid od last commasnd is " $!
+
 echo "to know the exit-status  previous commad is " $? 
 
-touch hello.txt 
 
-echo "to know the exit-status previous commad is " $? 
+
+
 
 
 
