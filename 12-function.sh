@@ -10,6 +10,9 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+
+echo "script started excutation at "$LOG_FILE
+
 validate(){
     if [ $1 -eq 0 ]
     then 
@@ -34,5 +37,5 @@ validate $? "intalling git"  &>> $LOG_FILE
 dnf install nginx -y 
 validate $? "intalling nginx" &>> $LOG_FILE
 
-dnf install maven -y 
+dnf install mavennn -y 
 validate $? "intalling maven" &>> $LOG_FILE
