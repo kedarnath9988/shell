@@ -18,7 +18,7 @@ echo " to know the pid of the current shell script is "$$
 
 sleep 10 &
 
-echo "pid od last commasnd is " $!
+echo "pid id last command is " $!
 
 
 
