@@ -20,8 +20,15 @@ fi
 
 echo "all packees :" $@
 
+validate()
+    if [ $1 -eq 0 ]
+    then
+        echo -e " $G  $2 installed successfully $N  "
+    else
+        echo -e  "$R  $2 not installed successfully $N "
+        exit 1 # manually exiting 
+    fi 
 #loop 
-
 for i in $@
 do 
     echo "pakages to install ::"$i 
@@ -31,6 +38,8 @@ do
             echo -e " $Y $i is already installed skipping  $N "
         else 
          echo  -e " $R $i need to be install  $N " 
+         dnf install $i -y &>> LOG_FILE
+         validate $? "installing $i"
     fi    
 done
 
