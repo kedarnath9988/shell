@@ -40,7 +40,7 @@ systemctl enable mysqld  &>> $LOG_FILE
 validate $? "enabling mysql"
 
 systemctl start mysqld  &>> $LOG_FILE
-validate S? "starting mysql".
+validate $? "starting mysql".
 
 
 mysql_secure_installation --set-root-pass ExpenseApp@1
