@@ -16,11 +16,11 @@ echo "to know the hostname of the OS is " $HOSTNAME
 
 echo " to know the pid of the current shell script is "$$ 
 
-sleep 10 
+sleep 10 &
 
 echo "pid od last commasnd is " $!
 
-echo "to know the exit-status  previous commad is " $? 
+
 
 
 
