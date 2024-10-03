@@ -12,11 +12,11 @@ fi
 echo " value of USER is " $USER
 
 
-dnf install maven -y 
+dnf remove maven -y 
 
 if [ $? -eq 0 ]
 then 
-    echo " maven installed successfully"
+    echo " maven removed  successfully"
 else
     echo " maven not installed"
 fi 
@@ -30,4 +30,5 @@ then
 else
     echo "git not installed"
 fi 
+
 
