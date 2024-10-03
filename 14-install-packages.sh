@@ -1,13 +1,21 @@
 #!/bin/bash 
 
 USER=$( id -u )
+TIME_STAMP=$( date +%f-%H-%M-%S )
+SCRIPT_NAME=$ (echo $0 | cut -d "." / -f1 )
+LOG_FILE=/tmp/$SCRIPT_NAME-$TIME_STAMP.log
+#colours enbling 
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
-
+echo "script name is :"$LOG_FILE
 if [ $USER -eq 0 ]
 then 
-    echo "  you are sudo user "
+    echo -e " $G you are sudo user $N "
 else
-    echo " need super user access to do "
+    echo  -e " $R need super user access to do $N "
 fi 
 
 echo "all packees :" $@
@@ -17,4 +25,21 @@ echo "all packees :" $@
 for i in $@
 do 
 echo "pakages to install ::"$i 
-done 
+dnf list installed $i
+if [ $? -eq 0 ]
+then 
+    echo -e " $Y $i is already installed $N "
+else 
+    echo  -e" $R $i need to be instal  $N "
+    dnf install $i -y 
+    if [ $? -eq 0 ]
+    then
+        echo -e " $G $i installed successfully $N  "
+    else
+        echo -e " $R  $i not installed $N "
+        exit 1 
+    fi 
+fi    
+done
+
+
