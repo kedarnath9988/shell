@@ -1,7 +1,15 @@
 #!/bin/bash 
-count=0
+
 for i in {1..20}
-do  echo $i 
-    count= $((count + 0))
+do 
+ echo $i 
+
 done
- echo "total count is " $count
+
+while k in {25..30}
+do 
+    echo $k 
+done
+
+
+ 
