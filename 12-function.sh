@@ -40,5 +40,5 @@ validate $? "intalling nginx"
 dnf install maven -y  &>> $LOG_FILE
 validate $? "intalling maven" 
 
-dnf install dockerr -y  &>> $LOG_FILE
+dnf install docker -y  &>> $LOG_FILE
 validate $? "intalling docker " 
