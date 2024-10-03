@@ -5,11 +5,11 @@ do
  echo $i 
 
 done
-
-while k in {25..30}
+k=25
+while [[ k -le 30 ]];
 do 
-    echo $k 
-done
+    echo $k;
+done;
 
 
  
