@@ -31,6 +31,10 @@ else
     exit 1 
 fi 
 
+# redireccting by defautly only success command is redirecting to the log file by giving 1> 
+# redireccting  failure  command is redirecting to the log file by giving 2>
+# But we need to redirecting both the success and failure must provide &>> 
+
 dnf install git -y   &>> $LOG_FILE
 validate $? "intalling git"  
 

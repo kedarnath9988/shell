@@ -1,9 +1,14 @@
 #!/bin/bash 
 
 USER=$( id -u )
-TIME_STAMP=$( date +%F-%H-%M-%S )
+TIME_STAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$( echo $0 | cut -d "." f1 )
 LOG_FILE=/tmp/$SCRIPT_NAME-$TIME_STAMP.log 
+# enabling the colours 
+R="\e[31m"
+Y="\e[32m"
+G="\e[33m"
+N="\e[0m"
 
 if [ $USER -eq 0 ]
 then 

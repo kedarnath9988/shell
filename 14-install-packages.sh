@@ -39,7 +39,7 @@ do
         else 
          echo  -e " $R $i need to be install  $N " 
          dnf install $i -y &>> LOG_FILE
-         validate $? "installing $i"
+         validate $? "installing $i" 
     fi    
 done
 
