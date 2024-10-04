@@ -42,10 +42,10 @@ validate $? "enabling mysql"
 systemctl start mysqld  &>> $LOG_FILE
 validate $? "starting mysql".
 
-mysql -h db.dawskedarnath.online -u root -pExpenseApp@1 -e "SHOW DATABASES;"
+mysql -h db.dawskedarnath.online -u root -pExpenseApp@1 -e "SHOW DATABASES;" &>> $LOG_FILE
 if [ $? -eq 0 ]
     then
-        echo -e "$G $2 done successfully ..$N"
+        echo -e "$Y $2  already password setuped successfully .. Skpping $N"
     else 
         echo  -e "$R $2  failure $N "
         mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
