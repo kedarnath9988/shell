@@ -42,7 +42,18 @@ validate $? "enabling mysql"
 systemctl start mysqld  &>> $LOG_FILE
 validate $? "starting mysql".
 
+mysql
+if [ $1 -eq 0 ]
+    then
+        echo -e "$G $2 done successfully ..$N"
+    else 
+        echo  -e "$R $2  failure $N "
+        mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
+        validate $? "setting up the root password"
+         
+    fi
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
-validate $? "serring up the root password"
+
+# mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
+# validate $? "setting up the root password"
 
