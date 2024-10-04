@@ -43,7 +43,7 @@ systemctl start mysqld  &>> $LOG_FILE
 validate $? "starting mysql".
 
 mysql -h db.dawskedarnath.online -u root -pExpenseApp@1 -e "SHOW DATABASES;"
-if [ $1 -eq 0 ]
+if [ $? -eq 0 ]
     then
         echo -e "$G $2 done successfully ..$N"
     else 
