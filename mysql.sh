@@ -43,6 +43,6 @@ systemctl start mysqld  &>> $LOG_FILE
 validate $? "starting mysql".
 
 
-mysql_secure_installation --set-root-pass ExpenseApp@1
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
 validate $? "serring up the root password"
 
