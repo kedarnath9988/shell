@@ -20,7 +20,7 @@ fi
 validate()
     if [ $1 -eq 0 ]
     then
-        echo "$2 .. done successfully $N"
+        echo -e "$2 .. done successfully $N "
     else
         echo "$2 .. failed .."
         exit 1 # manually exiting 
