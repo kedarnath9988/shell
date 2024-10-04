@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-USER=$( id -u )
+USER=$(id -u)
 TIME_STAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$( echo $0 | cut -d "." f1 )
 LOG_FILE=/tmp/$SCRIPT_NAME-$TIME_STAMP.log 
@@ -35,7 +35,7 @@ validate $? "enabling the nodejs:20"
 dnf install nodejs -y &>> LOG_FILE
 validate $? "installing nodejs"
 
-id expense 
+id expense &>> LOG_FILE
 if [ $? -eq 0 ]
 then
     echo "user already exited"
@@ -48,6 +48,9 @@ fi
 mkdir -p /app &>> LOG_FILE
 validate $? "creating /app directory"
 
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>> LOG_FILE
+validate $? "downlode the Backend code"
+
 unzip /tmp/backend.zip &>> LOG_FILE
 validate $? "unziping the backend code "
 
@@ -56,6 +59,29 @@ validate $? "moving to the /app directory"
 
 npm install &>> LOG_FILE
 validate $? "installing the nodejs dependences"
+
+cp /home/ec2-user/shell/backend.seervice /etc/systemd/system/backend.service &>> LOG_FILE
+validate $? "copying the backend service"
+
+systemctl daemon reload  &>> LOG_FILE
+validate $? "daemon reload"
+
+systemctl enable backend &>> LOG_FILE
+validate $? "enabling backend"
+
+systemctl start backend &>> LOG_FILE
+validate $? "starting backend"
+
+dnf install mysql -y &>> LOG_FILE
+validate $? "installing mysql clint"
+
+mysql -h db.dawsskedarnath.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>> LOG_FILE
+validate $? "loading the scheama"
+
+systemctl restart backend &>> LOG_FILE
+validate $? "restarting the backend"
+
+
 
 
 
