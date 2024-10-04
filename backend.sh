@@ -41,7 +41,8 @@ then
     echo "user already exited"
 else
     echo "user not existed need to create the Expense User"
-    useradd expense
+    useradd expense &>> LOG_FILE
+    validate $? "creating expense user"
 fi 
 
 mkdir -p /app &>> LOG_FILE
