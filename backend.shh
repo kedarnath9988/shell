@@ -81,8 +81,3 @@ validate $? "loading the scheama"
 systemctl restart backend &>> LOG_FILE
 validate $? "restarting the backend"
 
-
-
-
-
-
