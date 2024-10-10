@@ -4,4 +4,4 @@ set  -e
 
 dnf install nginx -y 
 
-fnf install mysql -y 
+dnf install mysql -y 
